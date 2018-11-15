@@ -17,13 +17,7 @@ class RouterService {
     this.routeDisplay = document.querySelector('route-display')
 
     const path = this.getCurrentPath()
-    console.log(document.readyState)
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', this.goto.bind(this, path))
-    } else {
-      this.goto(path)
-    }
-
+    window.addEventListener('load', this.goto.bind(this, path))
   }
 
   getCurrentPath() {
@@ -32,7 +26,6 @@ class RouterService {
 
   getRoute() {
     let currentPath = this.getAdjustedPath(this.getCurrentPath())
-    console.log('currentPath', currentPath)
     return [...this._paths.keys()]
       .map(this.fromBase64.bind(this))
       .find(routeRE => this._pathToRegex(routeRE).test(currentPath))
@@ -51,8 +44,6 @@ class RouterService {
     this._exitFn = null
     const route = this.getRoute()
     let handlers = this.getPath(route) || this.getPath('/')
-    console.log('route', route)
-    console.log('handlers', this.getPath('/'), this.getPath(route))
     let req = {
       exit: this._exit.bind(this),
       load: this._load.bind(this),
@@ -106,8 +97,6 @@ class RouterService {
   }
 
   getPath(path) {
-    console.log(path)
-    console.log(this._paths.keys())
     return this._paths.get(this.toBase64(path))
   }
 
