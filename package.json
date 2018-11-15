@@ -1,0 +1,13 @@
+{
+  "name": "@demo/historyapi",
+  "description": "History API Demo",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node serve.js --port 7600"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

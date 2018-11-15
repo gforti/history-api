@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <base href="/">
+        <title><%= htmlWebpackPlugin.options.title %></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="index.css" />
+    </head>
+    <body>
+        <header data-automation-id="main-header">
+            <section>
+              <div class="header-title">
+                <div class="header-sub-title">History API / Routing Demo</div>
+              </div>
+            </section>
+            <nav>
+                <route-link data-automation-id="home-link" data-route="/" data-title="Home Page">Home</route-link>
+                <route-link data-automation-id="test-link" data-route="/test" data-title="Test">Test</route-link>
+                <route-link data-automation-id="users-link" data-route="/users" data-title="Users">Users</route-link>
+                <route-link data-automation-id="users-link-123" data-route="/users/123" data-title="Users 123">Users 123</route-link>
+            </nav>
+        </header>
+
+        <section class="main" data-automation-id="main-content">
+            <route-display></route-display>
+        </section>
+
+        <script type="module" src="index.js" async defer></script>
+    </body>
+</html>
