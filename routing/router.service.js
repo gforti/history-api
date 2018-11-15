@@ -12,7 +12,7 @@ class RouterService {
     this.paramRegex = /[:*](\w+)/g
 
     this.historyChangeBind = this.historyChange.bind(this)
-    window.addEventListener('route-clicked', this.historyChangeBind)
+    window.addEventListener('url-change', this.historyChangeBind)
     window.addEventListener('popstate', this.historyChangeBind)
     this.routeDisplay = document.querySelector('route-display')
 
@@ -71,7 +71,7 @@ class RouterService {
 
   goto(path, title='') {
     window.history.pushState(path, title, `${this.basePath}${path}`)
-    window.dispatchEvent(new CustomEvent('route-clicked', { detail: path }))
+    window.dispatchEvent(new CustomEvent('url-change', { detail: path }))
     return this
   }
 

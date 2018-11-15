@@ -25,7 +25,7 @@ window.customElements.define('route-link', class extends HTMLElement {
       .filter(pathName => pathName.length)
       .join('/')
     window.history.pushState(this.dataset.route, this.dataset.title, `${this._basePath}${route}`)
-    window.dispatchEvent(new CustomEvent('route-clicked', { detail: this.dataset.route }))
+    window.dispatchEvent(new CustomEvent('url-change', { detail: this.dataset.route }))
   }
 
 })

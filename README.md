@@ -23,5 +23,5 @@ window.history.pushState(stateObject, title, `${basePath}/route-path`)
 Since the pushState function does not trigger an event listener, a custom one can be triggered.
 
 ```js
-window.dispatchEvent(new CustomEvent('push-state', { detail: '/route-path' }))
+window.dispatchEvent(new CustomEvent('url-change', { detail: '/route-path' }))
 ```
